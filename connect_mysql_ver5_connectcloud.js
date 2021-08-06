@@ -95,8 +95,8 @@ app.post('/setStopEvent',jsonParser,function (req, res) {
 // 關閉連線
 //connection.end();
 //複製程式碼
-var server = app.listen(8080, function () {
-  console.log('server running at 8080 port')
+var server = app.listen(8369, function () {
+  console.log('server running at 8369 port')
 })
 
 
