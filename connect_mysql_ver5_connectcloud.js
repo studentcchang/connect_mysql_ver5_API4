@@ -40,7 +40,7 @@ connection.query('SELECT * from factory', function (error, results, fields) {
 var QueryDBTime = moment(moment.valueof).format('YYYY-MM-DD HH:mm:ss');
 
 app.post('/queryStopEvent',jsonParser, function (req, res) {
-  const id_num=parseInt(req.body.machineID.substring(1,4))
+  const id_num=parseInt(req.body.machineID.substring(1,3))
   if(id_num==null)
   {
     res.json({event:-1,status_code:400,msg:'API參數傳入錯誤'})
@@ -71,7 +71,7 @@ app.post('/setStopEvent',jsonParser,function (req, res) {
   //原本是put
   //處理請求修改的資料和條件
   //查詢引數解析
-  const id_num=parseInt(req.body.machineID.substring(1,4))
+  const id_num=parseInt(req.body.machineID.substring(1,3))
   if(id_num==null)
   {
     res.json({status_code:400,msg:'API參數傳入錯誤'})
@@ -112,7 +112,7 @@ function intervalFunc() {
       var id =0;
       for(i=0;i<result.length;i++)
       {
-        id = parseInt(result[i].machine_id.substring(1,4));
+        id = parseInt(result[i].machine_id.substring(1,3));
         MachineStatus[id-1]=1;
       }
       console.log( MachineStatus);
